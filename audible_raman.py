@@ -51,7 +51,7 @@ class RamanSpectrum(object):
 		raw = numpy.loadtxt(f, dtype=float, delimiter="\t", unpack=True)
 		if len(raw) != 2:
 			raise ValueError("the input file must be 2-column tab-delimited")
-		wavenum, intens = raw
+		wavenum, intens = raw.reshape(2, -1)
 		new = cls(wavenum, intens)
 		return new
 
